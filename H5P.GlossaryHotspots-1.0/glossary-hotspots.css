@@ -19,7 +19,6 @@
   width: 1.4em;
   text-align: center;
   line-height: 1;
-  border-radius: 0.7em;
   -webkit-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
   background: transparent;
@@ -34,19 +33,14 @@
 }
 
 .h5p-image-hotspot.active {
+  border: 2px solid red;
   z-index: 1;
   cursor: pointer;
-  -ms-transform: scale(1.5); /* IE 9 */
-  -webkit-transform: scale(1.5); /* Chrome, Safari, Opera */
-  transform: scale(1.5);
 }
 
 .h5p-image-hotspot:focus,
 .not-an-ios-device .h5p-image-hotspot:hover {
   cursor: pointer;
-  -ms-transform: scale(1.5); /* IE 9 */
-  -webkit-transform: scale(1.5); /* Chrome, Safari, Opera */
-  transform: scale(1.5);
 }
 .h5p-image-hotspot:before {
   font-family: H5PFontAwesome4;
@@ -171,22 +165,6 @@
   cursor: pointer;
 }
 
-.h5p-image-hotspot-close-popup-button.h5p-image-hotspot-close-fullscreen {
-  right: -1.125em;
-  bottom: 0;
-  padding: 0;
-  margin: 0;
-  z-index: 3;
-  font-size: 1.35em;
-  width: 1.125em;
-
-  color: #EEE;
-  background: rgba(0,0,0,0.3);
-  -webkit-transition: right .5s ease-in-out;
-  transition: right .5s ease-in-out;
-  text-align: left;
-}
-
 .h5p-image-hotspot-close-popup-button.h5p-image-hotspot-close-fullscreen:hover,
 .h5p-image-hotspot-close-popup-button.h5p-image-hotspot-close-fullscreen:active {
   background: rgba(0,0,0,0.5);
@@ -194,11 +172,6 @@
 
 .h5p-image-hotspot-close-popup-button.h5p-image-hotspot-close-fullscreen:focus {
   outline: 1px solid deepskyblue;
-}
-
-.h5p-image-hotspot-close-popup-button:after {
-  font-family: H5PFontAwesome4;
-  content: '\f00d';
 }
 
 .h5p-image-hotspot-close-popup-button.h5p-image-hotspot-close-fullscreen:after {

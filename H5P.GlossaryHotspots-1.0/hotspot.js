@@ -37,7 +37,14 @@
       'aria-haspopup': true,
       src: iconImageExists ? H5P.getPath(options.iconImage.path, this.id) : undefined,
       click: function () {
-        // prevents duplicates while loading
+    	 // close other hotspotss' popups
+    	 var hotspots = parent.hotspots;
+    	 for (var i=0; i<hotspots.length; i++) {
+    		 var other = hotspots[i];
+    		 if (other == self) continue;
+    		 if (other.visible) other.hidePopup();
+    	 }
+         // prevents duplicates while loading
         if (self.loadingPopup) {
           return false;
         }

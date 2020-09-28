@@ -48,7 +48,7 @@
       'class': 'h5p-image-hotspot-popup ' + className,
       'role': 'dialog'
     }).css({
-      left: (toTheLeft ? '' : '-') + '100%',
+//      left: (toTheLeft ? '' : '-') + '100%',
       width: popupWidth + '%'
     }).click(function (event) {
       // If clicking on popup, stop propagating:
