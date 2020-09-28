@@ -1,13 +1,13 @@
 {
-  "title": "Image Hotspots",
-  "description": "Add hotspots with useful information and media to an image.",
+  "title": "Glossary Hotspots",
+  "description": "Add hotspots with useful information and media to a Glossary.",
   "majorVersion": 1,
-  "minorVersion": 8,
-  "patchVersion": 3,
+  "minorVersion": 0,
+  "patchVersion": 197,
   "runnable": 1,
-  "author": "Joubel",
+  "author": "x28",
   "license": "MIT",
-  "machineName": "H5P.ImageHotspots",
+  "machineName": "H5P.GlossaryHotspots",
   "fullscreen": 1,
   "coreApi": {
     "majorVersion": 1,
@@ -18,18 +18,18 @@
   ],
   "preloadedJs": [
     {
-      "path": "scripts/image-hotspots.js"
+      "path": "glossary-hotspots.js"
     },
     {
-      "path": "scripts/hotspot.js"
+      "path": "hotspot.js"
     },
     {
-      "path": "scripts/popup.js"
+      "path": "popup.js"
     }
   ],
   "preloadedCss": [
     {
-      "path": "styles/image-hotspots.css"
+      "path": "glossary-hotspots.css"
     }
   ],
   "preloadedDependencies": [

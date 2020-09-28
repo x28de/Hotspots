@@ -1,7 +1,7 @@
 /**
  * Defines the ImageHotspots.Popup class
  */
-(function ($, ImageHotspots, EventDispatcher) {
+(function ($, GlossaryHotspots, EventDispatcher) {
 
   /**
    * Creates new Popup instance
@@ -19,7 +19,7 @@
    * @param {Object} options
    *
    */
-  ImageHotspots.Popup = function ($container, $content, x, y, hotspotWidth, header, className, fullscreen, options) {
+  GlossaryHotspots.Popup = function ($container, $content, x, y, hotspotWidth, header, className, fullscreen, options) {
     EventDispatcher.call(this);
 
     var self = this;
@@ -185,7 +185,7 @@
   };
 
   // Extends the event dispatcher
-  ImageHotspots.Popup.prototype = Object.create(EventDispatcher.prototype);
-  ImageHotspots.Popup.prototype.constructor = ImageHotspots.Popup;
+  GlossaryHotspots.Popup.prototype = Object.create(EventDispatcher.prototype);
+  GlossaryHotspots.Popup.prototype.constructor = GlossaryHotspots.Popup;
 
-})(H5P.jQuery, H5P.ImageHotspots, H5P.EventDispatcher);
+})(H5P.jQuery, H5P.GlossaryHotspots, H5P.EventDispatcher);

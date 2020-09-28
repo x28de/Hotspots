@@ -1,7 +1,7 @@
 /**
  * Defines the ImageHotspots.Hotspot class
  */
-(function ($, ImageHotspots) {
+(function ($, GlossaryHotspots) {
 
   /**
    * Creates a new Hotspot
@@ -14,7 +14,7 @@
    * @param  {boolean} isSmallDeviceCB
    * @param  {H5P.ImageHotspots} parent
    */
-  ImageHotspots.Hotspot = function (config, options, id, isSmallDeviceCB, parent) {
+  GlossaryHotspots.Hotspot = function (config, options, id, isSmallDeviceCB, parent) {
     var self = this;
     this.config = config;
     this.visible = false;
@@ -71,14 +71,14 @@
     if (this.config.position.legacyPositioning) {
       this.$element.css({
         top: this.config.position.y + '%',
-        left: this.config.position.x + '%',
+        left: this.config.position.x * .75 + '%',
         color: options.color
       });
     }
     else {
       this.$element.css({
         top: 'calc(' + this.config.position.y + '% - 0.6em)',
-        left: 'calc(' + this.config.position.x + '% - 0.6em)',
+        left: 'calc(' + this.config.position.x * .75 + '% - 0.6em)',
         color: options.color
       });
     }
@@ -104,7 +104,7 @@
    * @public
    * @param {H5P.jQuery} $container
    */
-  ImageHotspots.Hotspot.prototype.appendTo = function ($container) {
+  GlossaryHotspots.Hotspot.prototype.appendTo = function ($container) {
     this.$container = $container;
     this.$element.appendTo($container);
   };
@@ -113,7 +113,7 @@
    * Display the popup
    * @param {boolean} [focusPopup] Focuses popup for keyboard accessibility
    */
-  ImageHotspots.Hotspot.prototype.showPopup = function (focusPopup) {
+  GlossaryHotspots.Hotspot.prototype.showPopup = function (focusPopup) {
     var self = this;
 
     // Create popup content:
@@ -157,7 +157,7 @@
     }
 
     // Create Image hot-spots popup
-    self.popup = new ImageHotspots.Popup(
+    self.popup = new GlossaryHotspots.Popup(
       self.$container, $popupBody,
       self.config.position.x,
       self.config.position.y,
@@ -228,7 +228,7 @@
    * Toggle whether hotspots has tabindex
    * @param {boolean} [disable] Disable tabindex if true
    */
-  ImageHotspots.Hotspot.prototype.toggleHotspotsTabindex = function (disable) {
+  GlossaryHotspots.Hotspot.prototype.toggleHotspotsTabindex = function (disable) {
     this.$container.find('.h5p-image-hotspot')
       .attr('tabindex', disable ? '-1' : '0')
       .attr('aria-hidden', disable ? true : '');
@@ -238,7 +238,7 @@
    * Hide popup
    * @public
    */
-  ImageHotspots.Hotspot.prototype.hidePopup = function () {
+  GlossaryHotspots.Hotspot.prototype.hidePopup = function () {
     if (this.popup) {
       // We don't get click events on body for iOS-devices
       $('body').children().off('click.h5p-image-hotspot-popup');
@@ -254,7 +254,7 @@
   /**
    * Focus hotspot
    */
-  ImageHotspots.Hotspot.prototype.focus = function () {
+  GlossaryHotspots.Hotspot.prototype.focus = function () {
     this.$element.focus();
   };
 
@@ -264,7 +264,7 @@
    * @param {ImageHotspots.Hotspot} hotspot Hotspot that focus should be trapped to
    * @param {boolean} [trapReverseTab] Traps when tabbing backwards
    */
-  ImageHotspots.Hotspot.prototype.setTrapFocusTo = function (hotspot, trapReverseTab) {
+  GlossaryHotspots.Hotspot.prototype.setTrapFocusTo = function (hotspot, trapReverseTab) {
     this.$element.on('keydown.trapfocus', function (e) {
       var keyCombination = e.which === 9 && (trapReverseTab ? e.shiftKey : !e.shiftKey);
       if (keyCombination) {
@@ -278,7 +278,7 @@
   /**
    * Release trap focus from hotspot
    */
-  ImageHotspots.Hotspot.prototype.releaseTrapFocus = function () {
+  GlossaryHotspots.Hotspot.prototype.releaseTrapFocus = function () {
     this.$element.off('keydown.trapfocus');
   };
 
@@ -286,9 +286,9 @@
    * Set title of hotspot element
    * @param {string} title Title to set for hotspot element
    */
-  ImageHotspots.Hotspot.prototype.setTitle = function (title) {
+  GlossaryHotspots.Hotspot.prototype.setTitle = function (title) {
     this.$element.attr('title', title);
     this.$element.attr('aria-label', title);
   };
 
-})(H5P.jQuery, H5P.ImageHotspots);
+})(H5P.jQuery, H5P.GlossaryHotspots);

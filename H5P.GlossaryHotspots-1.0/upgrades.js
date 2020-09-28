@@ -1,6 +1,6 @@
 var H5PUpgrades = H5PUpgrades || {};
 
-H5PUpgrades['H5P.ImageHotspots'] = (function () {
+H5PUpgrades['H5P.GlossaryHotspots'] = (function () {
   return {
     1: {
        /**

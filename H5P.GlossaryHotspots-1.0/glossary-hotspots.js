@@ -1,7 +1,7 @@
 /**
  * Defines the H5P.ImageHotspots class
  */
-H5P.ImageHotspots = (function ($, EventDispatcher) {
+H5P.GlossaryHotspots = (function ($, EventDispatcher) {
 
   /**
    * Default font size
@@ -21,7 +21,7 @@ H5P.ImageHotspots = (function ($, EventDispatcher) {
    * @param {Object} options
    * @param {number} id
    */
-  function ImageHotspots(options, id) {
+  function GlossaryHotspots(options, id) {
     EventDispatcher.call(this);
 
     // Extend defaults with provided options
@@ -38,8 +38,8 @@ H5P.ImageHotspots = (function ($, EventDispatcher) {
     this.isSmallDevice = false;
   }
   // Extends the event dispatcher
-  ImageHotspots.prototype = Object.create(EventDispatcher.prototype);
-  ImageHotspots.prototype.constructor = ImageHotspots;
+  GlossaryHotspots.prototype = Object.create(EventDispatcher.prototype);
+  GlossaryHotspots.prototype.constructor = GlossaryHotspots;
 
   /**
    * Attach function called by H5P framework to insert H5P content into
@@ -48,7 +48,7 @@ H5P.ImageHotspots = (function ($, EventDispatcher) {
    * @public
    * @param {H5P.jQuery} $container
    */
-  ImageHotspots.prototype.attach = function ($container) {
+  GlossaryHotspots.prototype.attach = function ($container) {
     var self = this;
     self.$container = $container;
 
@@ -116,7 +116,7 @@ H5P.ImageHotspots = (function ($, EventDispatcher) {
 
     for (var i=0; i<numHotspots; i++) {
       try {
-        var hotspot = new ImageHotspots.Hotspot(this.options.hotspots[i], this.options, this.id, isSmallDevice, self);
+        var hotspot = new GlossaryHotspots.Hotspot(this.options.hotspots[i], this.options, this.id, isSmallDevice, self);
         hotspot.appendTo(this.$hotspotContainer);
         var hotspotTitle = this.options.hotspots[i].header ? this.options.hotspots[i].header
           : this.options.hotspotNumberLabel.replace('#num', (i + 1).toString());
@@ -154,7 +154,7 @@ H5P.ImageHotspots = (function ($, EventDispatcher) {
    *
    * @param {boolean} enable True to enable, otherwise will be released
    */
-  ImageHotspots.prototype.toggleTrapFocus = function (enable) {
+  GlossaryHotspots.prototype.toggleTrapFocus = function (enable) {
     if (this.hotspots.length < 1) {
       return;
     }
@@ -182,13 +182,13 @@ H5P.ImageHotspots = (function ($, EventDispatcher) {
    * @param {boolean} [e.forceImageHeight]
    * @param {boolean} [e.decreaseSize]
    */
-  ImageHotspots.prototype.resize = function (e) {
+  GlossaryHotspots.prototype.resize = function (e) {
     if (this.options.image === null) {
       return;
     }
 
     var self = this;
-    var containerWidth = self.$container.width();
+    var containerWidth = self.$container.width() * .75;
     var containerHeight = self.$container.height();
     var width = containerWidth;
     var height = Math.floor((width/self.options.image.width) * self.options.image.height);
@@ -244,7 +244,7 @@ H5P.ImageHotspots = (function ($, EventDispatcher) {
     self.fontSize = (DEFAULT_FONT_SIZE * (width/self.initialWidth));
 
     self.$hotspotContainer.css({
-      width: width + 'px',
+      width: width * 1.33 + 'px',
       height: height + 'px',
       fontSize: self.fontSize + 'px'
     });
@@ -252,5 +252,5 @@ H5P.ImageHotspots = (function ($, EventDispatcher) {
     self.isSmallDevice = (containerWidth / parseFloat($("body").css("font-size")) < 40);
   };
 
-  return ImageHotspots;
+  return GlossaryHotspots;
 })(H5P.jQuery, H5P.EventDispatcher);
