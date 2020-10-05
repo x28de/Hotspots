@@ -20,8 +20,6 @@
   text-align: center;
   line-height: 1;
   border-radius: 0.7em;
-  -webkit-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
   background: #FFF;
   padding: 0;
   border: none;
@@ -112,15 +110,15 @@
 }
 .h5p-image-hotspot-popup-header {
   /* Header is just a one-liner for now */
-  white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
   font-weight: bold;
   margin: 0;
   padding: 0.5em 0.5em 0 0.5em;
+  margin-top: 4em;
+  margin-right: .8em;
   margin-bottom: 0.5em;
   line-height: 1.1;
-  font-size: 0.7em;
+  font-size: 0.9em;
   height: 1.5em;
 }
 .h5p-image-hotspot-popup-body {
@@ -133,7 +131,7 @@
   line-height: 1.1;
 }
 .fullscreen-popup .h5p-image-hotspot-popup-body {
-  margin-right: 1.8em;
+	padding-right: 0.8em;
 }
 .fullscreen-popup .h5p-image-hotspot-popup-content {
   height: 100%;
@@ -143,7 +141,7 @@
   overflow: auto;
 }
 .h5p-image-hotspot-popup-body > * {
-  font-size: 0.7em;
+  font-size: 0.9em;
   line-height: 1.1;
 }
 
@@ -163,7 +161,7 @@
   border: 0;
   background: transparent;
   font-size: 0.7em;
-  padding: 0.3em;
+  padding: 0;
   cursor: pointer;
 }
 
@@ -176,14 +174,8 @@
   outline: 1px solid deepskyblue;
 }
 
-.h5p-image-hotspot-close-popup-button.h5p-image-hotspot-close-fullscreen:after {
-  content: '\f112';
-  position: absolute;
-  font-size: 80%;
-  top: 50%;
-  width: 100%;
-  margin-top: -0.5em;
-  text-align: center;
+.h5p-image-hotspot-close-popup-button:after {
+  content: 'x';
 }
 
 .h5p-image-hotspots-overlay {

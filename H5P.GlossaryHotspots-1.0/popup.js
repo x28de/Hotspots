@@ -91,6 +91,7 @@
         var $fullscreenButton = $('.h5p-enable-fullscreen');
         this.$closeButton.css({
           width: $fullscreenButton.outerWidth() + 'px',
+          height: '1em',
           top: $fullscreenButton.outerHeight() + 'px'
         });
       }
