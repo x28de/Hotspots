@@ -15,7 +15,7 @@
   width: 100%;
 }
 img.h5p-image-hotspots-background {
-  border-right: solid #333 1px;
+  border-right: solid #EEE 1px;
 }
 .h5p-image-hotspot {
   position: absolute;
@@ -83,7 +83,7 @@ img.h5p-image-hotspots-background {
   -moz-box-sizing: border-box;
   -webkit-transition: left .3s ease-in-out;
   transition: left .3s ease-in-out;
-  border-left: solid #333 1px;
+  border-left: solid #EEE 1px;
 }
 
 .h5p-image-hotspot-has-header .h5p-image-hotspot-popup-body {

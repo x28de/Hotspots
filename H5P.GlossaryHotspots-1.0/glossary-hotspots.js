@@ -241,7 +241,9 @@ H5P.GlossaryHotspots = (function ($, EventDispatcher) {
       self.initialWidth = self.$container.width();
     }
 
-    self.fontSize = (DEFAULT_FONT_SIZE * (width/self.options.image.width));
+    var factor = Math.sqrt((width * .75)/self.options.image.width);
+    if (factor > 1) factor = 1;
+    self.fontSize = (DEFAULT_FONT_SIZE * factor);
 
     self.$hotspotContainer.css({
       width: width * 1.33 + 'px',

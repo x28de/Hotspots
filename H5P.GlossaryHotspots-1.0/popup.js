@@ -96,11 +96,6 @@
         });
       }
 
-      H5P.Transition.onTransitionEnd(self.$popup, function () {
-        self.$closeButton.css({
-          right: '0'
-        });
-      }, 300);
     }
     else {
       this.$pointer = $('<div/>', {
